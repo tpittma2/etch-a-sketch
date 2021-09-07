@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Etch-A-Sketch</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="Styles/styles.css">
-    </head>
-    <body>
-        <header>
-            <h1>Etch-A-Sketch</h1>
-        </header>
-            <div class="settings">
-                <div class="box-size-container">
-                    <h3>Game Size</h3>
-                    <p><strong class="box-size">36</strong></p>
-                    <input type="range" min="1" mad="100" name="box-range" id="box-range">
-                    <button class="apply range-button">Apply</button>
-                </div>
-            </div>
-            <div class="game-container">
 
+<head>
+    <title>Etch-A-Sketch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="Styles/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Etch-A-Sketch</h1>
+    </header>
+    <main>
+        <div class="settings">
+            <div class="box-size-container">
+                <h3>Game Size</h3>
+                <p><strong class="box-size">36</strong></p>
+                <input type="range" min="1" mad="100" name="box-range" id="box-range">
             </div>
-        <script src="Scripts/etch-a-sketch.js"></script>
-    </body>
+            <button class="clear">Clear</button>
+        </div>
+        <div class="game-container"></div>
+    </main>
+    <script src="Scripts/etch-a-sketch.js"></script>
+</body>
+
 </html>
