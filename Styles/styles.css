@@ -4,10 +4,27 @@ html, body {
     height: 100%;
     width: 100%;
     background-color:#dbced3;
+    margin:0;
 
     --primary-dark: #333;
     --primary-light: #ededed;
     --secondary-light: #fefefe;
+}
+
+input[type='color'] {
+    -webkit-appearance: none;
+    width: 80px;
+    height: 80px;
+    border: none;
+}
+
+input[type='range'] {
+   /* -webkit-appearance: none;*/
+    background-color: var(--primary-light);
+}
+
+button:hover, input[type='color']:hover {
+    transform: scale(1.05);
 }
 
 body {
@@ -16,6 +33,12 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+}
+
+h3{
+    text-align: center;
 }
 
 main {
@@ -27,15 +50,43 @@ button, input[type='color'] {
     transition: transform 0.1s ease-in-out;
 }
 
+button, input {
+    width: 100%;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    outline: none;
+}
 
-header {
+button {
+    padding: 10px 20px;
+    border: 1px solid var(--primary-dark);
+    border-radius: 5px;
+    
+}
+
+
+
+button.active {
+    background-color: var(--primary-dark);
+    color: var(--primary-light);
+}
+
+
+.title {
     text-align: center;
+    font-size: 80px;
 }
 
 .settings {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
 
@@ -63,17 +114,20 @@ header {
 
 @media (max-width: 700px)
 {
-    .settings {
-        flex-direction:row;
+    .title {
+        font-size: 50px;
     }
-
-    .settings .clear {
-        margin: 25px 0 25px 0;
+    main {
+        flex-direction: column-reverse;
+    }
+    .game-container {
+        height: 300px;
+        width: 300px;
     }
 }
 
 .game-container{
-    border: 2px solid black;
+    border: 2px solid var(--primary-dark);
     display: flex;
     flex-direction: column;
     height: 60vh;
@@ -81,6 +135,11 @@ header {
   justify-content: center;
   margin: 20px 10px 20px 10px;
 
+}
+
+.box-size-container p {
+    text-align: center;
+    margin-bottom: 0;
 }
 
 .game-row{
@@ -93,5 +152,5 @@ header {
 }
 
 .game-square.grid{
-    border: 1px solid gray;
+    border: 1px solid var(--primary-dark);
 }

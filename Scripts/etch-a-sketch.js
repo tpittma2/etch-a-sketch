@@ -3,10 +3,13 @@ const boxSize = document.getElementById('box-range');
 const gameContainer = document.querySelector('.game-container');
 const btnClear = document.querySelector('.clear');
 const btnToggleGrid = document.querySelector('.toggle-grid');
-const colorButtons = document.querySelectorAll('color-option-button');
-const btnPenColor = document.querySelector('pen-color');
 const colorPicker = document.getElementById('pen-color');
-const ACTIVE_COLOR_CLASS = 'active-color';
+
+const btnPenColor = document.querySelector('.color-pen');
+const btnPenRainbow = document.querySelector('.rainbow-pen');
+const btnPenEraser = document.querySelector('.eraser-pen');
+const penButtons = [btnPenColor, btnPenRainbow, btnPenEraser];
+const ACTIVE_COLOR_CLASS = 'active';
 
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
@@ -16,8 +19,7 @@ function removeAllChildNodes(parent) {
 
 function setColorMethod(control)
 {
-
-    colorButtons.forEach(x=> {
+    penButtons.forEach(x=> {
         if(x == control)
         {
             x.classList.add(ACTIVE_COLOR_CLASS);
@@ -27,6 +29,28 @@ function setColorMethod(control)
             x.classList.remove(ACTIVE_COLOR_CLASS);
         }
     })
+}
+
+function GetPenColor(){
+    let penColor = colorPicker.value;
+    let activeButtons = document.querySelectorAll('.active');
+    activeButtons.forEach(x=> {
+        if(x.isSameNode(btnPenColor))
+        {
+           // break;
+        }
+         if(x.isSameNode(btnPenRainbow))
+        {
+            penColor = getRandomColor();
+          //  break;
+        }
+        else if(x.isSameNode(btnPenEraser))
+        {
+            penColor = 'var(--primary-light)';
+          //  break;
+        }
+    });
+    return penColor;
 }
 
 function buildGame()
@@ -55,7 +79,8 @@ function toggleGridLines() {
 }
 
 function colorBox(e) {
-    e.target.style['background-color'] = getRandomColor(); //'black';
+    let penColor = GetPenColor();
+    e.target.style['background-color'] = penColor; //'black';
 }
 
 function setBoxSizeText()
@@ -86,7 +111,7 @@ boxSize.addEventListener('input', function(e)
 boxSize.addEventListener('change', buildGame);
 btnClear.addEventListener('click', buildGame);
 btnToggleGrid.addEventListener('click', toggleGridLines);
-colorButtons.forEach(x=> x.addEventListener('click', function(e){setColorMethod(e.target)}));
+penButtons.forEach(x=> x.addEventListener('click', function(e){setColorMethod(e.target)}));
 
 boxSize.value = 16;
 setBoxSizeText();

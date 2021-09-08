@@ -5,23 +5,22 @@
     <title>Etch-A-Sketch</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Styles/styles.css">
+
 </head>
 
 <body>
     <header>
-        <h1>Etch-A-Sketch</h1>
+        <h1 class="title">Etch-A-Sketch</h1>
     </header>
     <main>
         
         <div class="settings">
-            <div class='color-options'>
-                <div class="pen-color active-color color-option-button option-button">
-                    <label for="favcolor">Pen Color:</label>
-                    <input type="color" id="pen-color" name="pen-color" value="black"> 
-                </div>
-                <div class="rainbow-pen color-option-button option-button"><p>Rainbow</p></div>
-            </div>
+                    <input type="color" id="pen-color" name="pen-color" value="#333333"> 
+                    <button class="color-pen active">Pen Color</button>
+                <button class="rainbow-pen">Rainbow</button>
+                <button class="eraser-pen">Eraser</button>
             <div class="box-size-container">
                 <h3>Game Size</h3>
                 <p><strong class="box-size">36</strong></p>
