@@ -13,13 +13,23 @@
         <h1>Etch-A-Sketch</h1>
     </header>
     <main>
+        
         <div class="settings">
+            <div class='color-options'>
+                <div class="pen-color active-color color-option-button option-button">
+                    <label for="favcolor">Pen Color:</label>
+                    <input type="color" id="pen-color" name="pen-color" value="black"> 
+                </div>
+                <div class="rainbow-pen color-option-button option-button"><p>Rainbow</p></div>
+            </div>
             <div class="box-size-container">
                 <h3>Game Size</h3>
                 <p><strong class="box-size">36</strong></p>
                 <input type="range" min="1" mad="100" name="box-range" id="box-range">
             </div>
+            <button class="toggle-grid">Toggle Grid Lines</button>
             <button class="clear">Clear</button>
+            
         </div>
         <div class="game-container"></div>
     </main>
